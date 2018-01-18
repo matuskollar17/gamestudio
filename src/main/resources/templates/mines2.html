@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Game Studio</title>
+
+
+<!-- Bootstrap CSS -->
+
+
+
+
+
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+	integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+	crossorigin="anonymous" />
+
+<link rel="stylesheet" href="/test/css/mojStyl.css" />
+
+
+</head>
+<body>
+
+	<div class="container">
+
+		<div class="row logo">
+			<div class="col-100 text">
+
+				<h1 class="text">Game Studio</h1>
+				<p class="logotext">Created by MK</p>
+
+			</div>
+
+		</div>
+
+		<br />
+
+
+
+		<div class="row">
+			<div class="col-35 menu">
+
+				<p>Menu</p>
+				<hr/>
+
+				<a href="/test/index.html">Home</a><br /> <a href="/test/score.html">Score
+					Board</a><br /> <a href="/test/games.html">Games</a><br />
+
+			</div>
+			<div class="col-65 home">
+
+
+
+
+<a href='/mines2'>New Game</a> <br /> Action Set to: <a
+					href='/mines_mark'><span th:if='${minesController.marking}'>Marking</span></a>
+				<a href='/mines_mark'><span
+					th:if='${not minesController.marking}'>Opening</span></a>
+
+
+
+
+				<p th:utext='${minesController.render()}' />
+
+				<p th:utext='${minesController.message}' />
+<!-- 			<p th:text='${scores}' /> -->
+				
+<!-- 				<p th:eachtext='score: ${scores}' /> -->
+<!-- 				<span th:text='${score}'></span>  -->
+		
+		<ol>
+		<li th:each='score: ${scores}'>
+		
+		<span th:text='${score.username}'/>
+		<span th:text='${score.value}'/>
+		</li>
+		</ol>
+		
+
+				
+
+
+			</div>
+
+		</div>
+
+	
+<div th:replace="footer::footer"/>
+
+
+	</div>
+
+</body>
+</html>

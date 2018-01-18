@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Game Studio</title>
+
+
+<!-- Bootstrap CSS -->
+	<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+	integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+	crossorigin="anonymous">
+	
+	<link rel="stylesheet" href="css/mojStyl.css">
+
+
+</head>
+<body>
+
+<div class="container">
+		
+		<div class="row logo">
+			<div class="col-100 text">
+
+			<h1 class="text">Game Studio</h1>
+			<p class="logotext">Created by MK</p>
+				
+			</div>
+			
+		</div>
+		
+		<br>
+		
+		
+		
+				<div class="row">
+			<div class="col-35 menu">
+
+			<p>Menu</p><hr>
+			
+			<a href="index.html">Home</a><br>
+			<a href="score.html">Score Board</a><br>
+			<a href="games.html">Games</a><br>
+			
+			</div>
+			<div class="col-65 home">
+
+
+	<form>
+Select Game to display score:
+<select id="selectGame">
+  <option value="CounterStrike">Counter Strike</option>
+  <option value="Mines">Mines Sweeper</option>
+  <option value="Puzzle">15 Puzzle</option>
+  <option value="World of Warcraft">World of Warcraft</option>
+</select>
+</form>
+
+<button id="zobraz" onclick="javascript:printScore()" > GO! </button>
+<!-- <button type="button" onclick="javascript:zobrazScore()">GO!</button> -->
+
+<hr>
+
+
+
+
+
+    <form id="frmNewScore">
+        <label>Your Name: 
+            <input type="text" id="userName" placeholder="Enter User Name"/>
+           
+        </label>
+         <label>Your Game Score:
+         <input type="text" id="inNewScore" placeholder="Enter score as number"/>
+        </label>
+        <button type="button" id="btSaveScore" onclick="javascript:printScore()">Save score</button>
+    </form>
+
+<hr>
+
+
+	
+	<div id="scoreTable"></div>
+	
+
+	<!-- Mustache sablona pre jednu ulohu -->
+
+
+<script id="tmplScores" type="text/template">
+
+
+
+<ol>
+	 {{#.}}<li> {{username}} &nbsp  {{value}}</li> {{/.}}
+	
+	
+</ol>
+
+
+
+</script>
+
+
+
+
+
+<!-- <script id="tmplScores" type="text/template">
+    <table>
+    <tr><th>Name</th><th>score</th></tr>
+    {{#.}}
+    <tr><td>{{username}}</td><td>{{value}}</td></tr>
+    {{/.}}
+    </table>
+ </script> -->
+
+					
+</div>
+
+</div>
+	
+		
+		
+		
+
+</div>
+	<!-- Vlozenie jQuery -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
+</script> <!--Linka na CDN je z https://code.jquery.com/-->
+<script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
+
+
+<!-- Vlozenie Mustache -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+<script>window.Mustache || document.write('<script src="js/mustache.min.js"><\/script>')</script>
+
+
+<!-- <script src="js/ffdsgameStudioScore.js"></script> -->
+<script src="js/mygamestudioscore.js"></script>
+
+
+
+</body>
+</html>

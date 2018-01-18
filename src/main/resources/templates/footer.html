@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<title>Insert title here</title>
+</head>
+<body>
+
+
+<div th:fragment="nice_footer">
+<span th:if='${@userController.logged}'>
+Logged as <span th:text='${@userController.loggedPlayer?.login}'/>
+
+
+<a href= "/logout">Logout</a>
+</span>
+
+<span th:if='${not @userController.logged}'>
+<a href='/user'>Login</a>
+</span>
+or
+<a href='/user'>Register</a>
+</div>
+
+
+</body>
+</html>

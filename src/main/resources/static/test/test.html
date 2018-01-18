@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Game Studio</title>
+
+
+<!-- Bootstrap CSS -->
+
+
+    <style type="text/css">
+       a:link {color: black;}      /* unvisited link */
+       a:visited {color: black;}   /* visited link */
+       a:hover {color: black;}     /* mouse over link */
+       a:active {color: black;}    /* selected link */
+    </style>
+
+
+
+
+	<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+	integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+	crossorigin="anonymous">
+	
+	<link rel="stylesheet" href="css/mojStyl.css">
+
+
+</head>
+<body>
+
+<div class="container">
+		
+		<div class="row logo">
+			<div class="col-100 text">
+
+			<h1 class="text">Game Studio</h1>
+			<p class="logotext">Created by MK</p>
+				
+			</div>
+			
+		</div>
+		
+		<br>
+		
+		
+		
+				<div class="row">
+			<div class="col-35 menu">
+
+			<p>Menu</p><hr>
+			
+			<a href="index.html">Home</a><br>
+			<a href="score.html">Score Board</a><br>
+			<a href="games.html">Games</a><br>
+			
+			</div>
+			<div class="col-65 home">
+<select name="aa" onchange="report(this.value)"> 
+  <option value="">Please select</option>
+  <option value="daily">daily</option>
+  <option value="monthly">monthly</option>
+</select>
+
+<script>
+function report(period) {
+  if (period=="") return; // please select - possibly you want something else here
+
+  var report = "script/"+((period == "daily")?"d":"m")+"_report.php";
+  loadXMLDoc(report,'responseTag');
+  document.getElementById('responseTag').style.visibility='visible';
+  document.getElementById('list_report').style.visibility='hidden';
+  document.getElementById('formTag').style.visibility='hidden'; 
+} 
+</script>			
+					
+				
+			</div>
+
+		</div>
+		
+		
+		
+		
+
+</div>
+
+</body>
+</html>

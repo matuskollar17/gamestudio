@@ -1,0 +1,120 @@
+
+
+	a:link {color: black;}    
+	a:visited {color: black;}  
+	a:hover {color: black;}    
+	a:active {color: black;}   
+
+
+
+
+body {
+	background: #00aa77;
+	background-image: url("../zenbg-1.png"), url("../zenbg-2.png");
+	background-repeat: repeat-x, repeat;
+
+
+}
+
+.home {
+	border-radius: 25px;
+	text-align: center;
+	padding: 10px;
+	border-width: 1px;
+	border-style: solid;
+	width: 1030px;
+	background-color:white;
+	align-content: center;
+}
+
+.logo {
+
+	border-radius: 25px;
+	height: 175px;
+	border-width: 1px;
+	border-style: solid;
+	background-image: url("../logobg.png");
+	background-image: url("../logobg_center.jpg");
+
+	
+background: #1e5799;
+
+}
+
+
+.menu {
+	
+	border-radius: 25px;
+	height: 175px;
+	padding: 10px;
+	border-width: 1px;
+	border-style: solid;
+	
+	
+background: rgb(64,150,238);
+
+}
+
+.text {
+	
+	text-align: center;
+	padding: 15px;
+	
+}
+
+.logotext {
+	
+	position: relative;
+    left: 800px;
+	padding: 15px;
+	text-align: right;
+	
+}
+
+.img {
+	height: 100px;
+	width: 100px;
+	align-content: center;
+	
+}
+
+h1 {
+	
+	  font: "OCR A Extended";
+	  
+	  font-family: "OCR A Extended, Times New Roman", Times, serif;
+	  font-size: 40px;
+	
+}
+
+p {
+	text-align: center;
+}
+
+
+.mineren {
+	align-content: center;
+	text-align: center;
+	border: 5px, solid black;
+}
+
+
+.table {
+	padding: 2px;
+}
+
+
+
+
+
+table, th, td {
+   border: 1px solid black;
+}
+
+
+li {
+   border: 1px solid black;
+}
+
+
+

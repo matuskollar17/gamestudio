@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<link rel="stylesheet" type="text/css" href="gs/css/bootstrap.css"/>
+		<link rel="stylesheet" type="text/css" href="gs/css/style.css"/>
+		<title>Game Studio</title>
+	</head>
+
+	<body onload="startTime()">
+	
+
+	
+<!--<div class="container-fluid">-->
+<div class="container">
+<div class="row logo ram ">
+<div class="col">
+<!--<h1>Game Studio</h1>-->
+				
+</div>
+
+
+
+</div>	
+		
+		
+<div class="row menubar ram">
+	
+		
+	
+	<ul class="unlist">
+	<li class="list list:last-child list a list a:hover active"><a href="/" class="active">Home</a></li>
+	<li class="list list:last-child list a list a:hover"><a href="games.html" >Games</a></li>
+	<li class="list list:last-child list a list a:hover"><a href="#contact" >Contact</a></li>
+<!-- 	 <li><div class="dropdown"> -->
+<!-- 	<button class="dropbtn">Dropdown</button> -->
+<!-- 	<div class="dropdown-content"> -->
+<!-- 	<a href="#">Link 1</a> -->
+<!-- 	<a href="#">Link 2</a> -->
+<!-- 	<a href="#">Link 3</a> -->
+<!-- 	 </div> -->
+<!-- 	</div></li> -->
+	
+	
+	<li class="list list:last-child list a list a:hover">	<!--<p class="watch">Current Time:</p>--><p class="watch" id="txt">cc</p></li>
+	<li class="list list:last-child list a list a:hover"> <span th:if='${@userController.logged}'> <p class="watch" th:text="'Logged as:' + ' ' + ${@userController.LoggedPlayer?.Login}" /></span></li>
+	
+	<li class="list list:last-child list a list a:hover" style="float:right"> 
+	<span th:if='${not @userController.logged}'>
+	<a class="active" href="#login" id="myBtn">Login</a>
+	</span>
+	<span th:if='${@userController.logged}'>
+	
+	<a href= "/logout" id="myBtn" class="active">Logout</a>
+</span>
+<!-- 	 <button id="myBtn">Login</button> -->
+					
+					
+					
+						
+	<!-- The Modal -->
+	<div id="myModal" class="modal">
+
+	 <!-- Modal content -->
+	    <div class="modal-content">
+		   <span class="close" align="right">&times;</span>
+		<br/>
+		<form action="/login" method="post">
+		Login: 
+		<input type="text" name="login" th:value="${@userController.LoggedPlayer?.Login}"/>
+		Passowrd: 
+		<input type="password" name="password"/>
+	
+		<input type="submit" value="Login" />
+		</form>
+		
+	</div>
+
+							</div>
+						
+						
+						</li>
+						
+						<span th:if='${@userController.logged}'>
+						<li class="list list:last-child list a list a:hover" style="float:right">
+	<a href="/profile.html">Profile</a></li>
+	</span>
+						
+						
+						
+				</ul>
+				<!--	<p>Menu Bar</p>-->
+				
+				<script src="gs/js/modal.js"></script>
+				<script src="gs/js/time.js"></script>
+			</div>
+	
+
+<div class="row pagebody ram" >
+	<div class="col">
+	<div id="txt"></div>
+	<h1>Welcome on Game Studio Site</h1><br/>
+	<p>Content of this site is for presentation purporses for skill showing from Java Academy</p>
+
+	
+<!-- 	<div th:replace="footer::nice_footer"/> -->
+<!-- 	<a href="/logout">Logout</a><br/> -->
+	
+<p class="text">Used technologies:</p>
+<ul class="text">
+<li>HTML</li>
+<li>CSS - BootStrap</li>
+<li>JavaScript</li>
+<li>Java SE - Spring, Maven</li>
+
+</ul>
+<span th:if='${not @userController.logged}'>
+<p>Please, <a href="/register" class="register">Register</a> and enjoy the content</p>
+</span>
+
+
+</div>
+
+
+</div>
+</div>
+	
+
+</body>
+
+</html>

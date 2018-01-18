@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="ISO-8859-1"></meta>
+<title>Mines Sweeper</title>
+</head>
+<body>
+<p th:utext='${minesController.render()}' />
+
+<p th:utext='${minesController.message}' />
+
+<a href='/mines'>New Game</a>
+<br/>
+Action Set to: 
+<a href='/mines_mark'><span th:if='${minesController.marking}'>Marking</span></a>
+<a href='/mines_mark'><span th:if='${not minesController.marking}'>Opening</span></a>
+
+
+
+
+</body>
+</html>

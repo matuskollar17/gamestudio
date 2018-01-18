@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<link rel="stylesheet" type="text/css" href="gs/css/bootstrap.css"/>
+		<link rel="stylesheet" type="text/css" href="gs/css/style.css"/>
+		<title>Game Studio</title>
+	</head>
+
+	<body onload="startTime()">
+	
+
+	
+<!--<div class="container-fluid">-->
+<div class="container">
+<div class="row logo ram ">
+<div class="col">
+<!--<h1>Game Studio</h1>-->
+				
+</div>
+
+
+
+</div>	
+		
+		
+<div class="row menubar ram">
+	
+		
+	
+	<ul class="unlist">
+	<li class="list list:last-child list a list a:hover active"><a href="/" class="active">Home</a></li>
+	<li class="list list:last-child list a list a:hover"><a href="games.html" >Games</a></li>
+	<li class="list list:last-child list a list a:hover"><a href="#contact" >Contact</a></li>
+	 <li><!--<div class="dropdown">
+	button class="dropbtn">Dropdown</button>
+	div class="dropdown-content">
+	<a href="#">Link 1</a>
+	<a href="#">Link 2</a>
+	<a href="#">Link 3</a>
+	 </div>
+	</div>--></li>
+	
+	
+		<li class="list list:last-child list a list a:hover">	<!--<p class="watch">Current Time:</p>--><p class="watch" id="txt">cc</p></li>
+	<li class="list list:last-child list a list a:hover"> <span th:if='${@userController.logged}'> <p class="watch" th:text="'Logged as:' + ' ' + ${@userController.LoggedPlayer?.Login}" /></span></li>
+	<li class="list list:last-child list a list a:hover" style="float:right"> 
+	<span th:if='${not @userController.logged}'>
+	<a class="active" href="#login" id="myBtn">Login</a>
+	</span>
+	<span th:if='${@userController.logged}'>
+	<a href= "/logout" id="myBtn" class="active">Logout</a>
+</span>
+<!-- 	 <button id="myBtn">Login</button> -->
+					
+					
+					
+						
+	<!-- The Modal -->
+	<div id="myModal" class="modal">
+
+	 <!-- Modal content -->
+	    <div class="modal-content">
+		   <span class="close" align="right">&times;</span>
+		<br/>
+		<form action="/login" method="post">
+		Login: 
+		<input type="text" name="login" th:value="${@userController.LoggedPlayer?.Login}"/>
+		Passowrd: 
+		<input type="password" name="password"/>
+	
+		<input type="submit" value="Login" />
+		</form>
+		<br/><hr/>
+		<p>Not Registered yet ? Please, register <a href="#register">here</a></p>
+	</div>
+
+							</div>
+						
+						
+						</li>
+												<span th:if='${@userController.logged}'>
+						<li class="list list:last-child list a list a:hover" style="float:right">
+	<a href="/profile.html">Profile</a></li>
+	</span>
+						
+						
+				</ul>
+				<!--	<p>Menu Bar</p>-->
+				
+				<script src="gs/js/modal.js"></script>
+				<script src="gs/js/time.js"></script>
+			</div>
+	
+
+<div class="row pagebodyg ram" >
+	<div class="col">
+<br/>
+
+
+
+
+<!-- <img src="gs/img/minesweeper.png" alt="MineSweeper" class="img"/> <span class="gtext"><p class="gtext"> <a href="mines3.html">Play !</a><br/> Game AVG rating:  <span th:text='${@minesController.rating}'/>/5</p></span><br/><br/><hr/> -->
+<img src="gs/img/minesweeper.png" alt="MineSweeper" class="img"/> <span class="gtext"><p class="gtext"> <a href="mines3.html">Play !</a><br/> Game AVG rating:  <span th:utext='${#numbers.formatDecimal(@minesController.rating,1,2)}'/>/5</p></span><br/><br/><hr/>
+<img src="gs/img/puzzle.jpg" alt="15 Puzzle" class="img"/><span class="gtext"><p class="gtext"><a href="puzzle3.html">Play !</a><br/>Game AVG rating:  <span th:utext='${#numbers.formatDecimal(@puzzleController.rating,1,2)}'/>/5</p></span><br/><br/><hr/>
+<!-- <img src="gs/img/puzzle.jpg" alt="15 Puzzle" class="img"/><span class="gtext"><p class="gtext"><a href="puzzle3.html">Play !</a><br/>Game AVG rating:  <span th:text='${@puzzleController.rating}'/>/5</p></span><br/><br/><hr/> -->
+<img src="gs/img/gs.png" alt="GuessNumber" class="img"/><span class="gtext"><p class="gtext"><a href="guessnum.html">Play !</a><br/>Game AVG rating:  <span th:utext='${#numbers.formatDecimal(@guessNumberController.rating,1,2)}'/>/5</p></span><br/><br/><hr/>
+<!-- <img src="gs/img/gs.png" alt="GuessNumber" class="img"/><span class="gtext"><p class="gtext"><a href="guessnum.html">Play !</a><br/>Game AVG rating:  <span th:text='${@guessNumberController.rating}'/>/5</p></span><br/><br/><hr/> -->
+<img src="gs/img/coming-soon.png" alt="Slider" class="img"/><span class="gtext"><p class="gtext">Slider</p><a href="slider.html">Play !</a><br/></span><br/><br/><hr/>
+<img src="gs/img/coming-soon.png" alt="GuessNumber" class="img"/><span class="gtext"><p class="gtext">tic tac toe</p></span><br/><br/><hr/>
+
+<!-- <a href="guessnum.html">Play !</a><br/>Game AVG rating:  <span th:text='${@guessNumberController.rating}'/>/5 -->
+
+
+
+<!-- <img src="gs/img/gs.png" alt="GuessNumber" class="img"/><p class="gtext"> <a href="guessnum.html">Play !</a><br/>Game AVG rating:  <span th:text='${@guessNumberController.rating}'/>/5</p></span><br/><br/><hr/> -->
+
+
+
+
+</div>
+
+
+</div>
+</div>
+	
+
+</body>
+
+</html>
