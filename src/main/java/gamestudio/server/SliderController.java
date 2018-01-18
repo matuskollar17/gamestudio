@@ -35,7 +35,7 @@ public class SliderController {
 	public double rating;
 	
 	public double getRating() {
-		return rating = ratingService.getAverageRating("15 Puzzle");
+		return rating = ratingService.getAverageRating("Slider");
 	}
 
 	public void setRating(double rating) {
@@ -110,9 +110,9 @@ public class SliderController {
 				int tile = field.getTile(row, column);
 				sb.append("<td class='puzzle'>\n");
 				if (!field.isSolved()) {
-					sb.append(String.format("<a href='/puzzle3?tile=%d'>\n", tile));
+					sb.append(String.format("<a href='/slider?tile=%d'>\n", tile));
 					if (tile != 0) {
-					sb.append("<img class='slider' src=../gs/img/pexeso/dog" + tile + ".jpg/>");
+					sb.append("<img class='slider' src=../gs/img/pexeso/image_part_00" + tile + ".jpg/>");
 						//sb.append(tile);
 					}
 				} else {
@@ -150,7 +150,7 @@ public class SliderController {
 	
 	
 	private void initField() {
-		field = new Field(5,4);
+		field = new Field(3,3);
 		message = "";
 	}
 
@@ -168,7 +168,7 @@ public class SliderController {
 				int time = (int) field.getTcount();
 				Score score = new Score();
 		
-				score.setGame("15 Puzzle");
+				score.setGame("Slider");
 				score.setUsername(userController.getLoggedPlayer().getLogin());
 				
 				score.setValue(time);

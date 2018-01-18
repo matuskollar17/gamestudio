@@ -58,9 +58,21 @@ public class UserController {
 
 	}
 	
+	@RequestMapping("/contact")
+	public String contact(Model model) {
+		return "contact";
+
+	}
+	
+	@RequestMapping("/contact-form")
+	public String contactform(Model model) {
+		return "contact-form";
+
+	}
+	
 	@RequestMapping("/register")
 	public String register(Model model) {
-		return "register";
+		return "index";
 
 	}
 	

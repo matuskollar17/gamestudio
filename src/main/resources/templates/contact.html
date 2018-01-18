@@ -4,6 +4,7 @@
 		<link rel="stylesheet" type="text/css" href="gs/css/bootstrap.css"/>
 		<link rel="stylesheet" type="text/css" href="gs/css/style.css"/>
 		<title>Game Studio</title>
+		<script language="JavaScript" src="../gs/js/gen_validatorv31.js" type="text/javascript"></script>
 	</head>
 
 	<body onload="startTime()">
@@ -30,7 +31,7 @@
 	<ul class="unlist">
 	<li class="list list:last-child list a list a:hover active"><a href="/" class="active">Home</a></li>
 	<li class="list list:last-child list a list a:hover"><a href="games.html" >Games</a></li>
-	<li class="list list:last-child list a list a:hover"><a href="contact.html" >Contact</a></li>
+	<li class="list list:last-child list a list a:hover"><a href="#contact" >Contact</a></li>
 <!-- 	 <li><div class="dropdown"> -->
 <!-- 	<button class="dropbtn">Dropdown</button> -->
 <!-- 	<div class="dropdown-content"> -->
@@ -98,26 +99,22 @@
 <div class="row pagebody ram" >
 	<div class="col">
 	<div id="txt"></div>
-	<h1>Welcome on Game Studio Site</h1><br/>
-	<p>Content of this site is for presentation purposes to show, what we have learned in previous weeks.<br/> <br/>
-	Thanks goes to <img class="banner1" src="gs/img/kpi.png"/> and <img class="banner2" src="gs/img/tsys.png"/>
-	</p>
+<p>test </p>
 
-	
-<!-- 	<div th:replace="footer::nice_footer"/> -->
-<!-- 	<a href="/logout">Logout</a><br/> -->
-	
-<p class="text">Used technologies:</p>
-<ul class="text">
-<li>HTML</li>
-<li>CSS - BootStrap</li>
-<li>JavaScript</li>
-<li>Java SE - Spring, Maven</li>
+	<form method="POST" name="contactform" action="contact-form-handler.php"> 
+	<div class="block">
+	<label>Name:</label> <br/><input class="inpu" type="text" name="name" required="required" placeholder="Name"/><br/>
+	</div>
+	<div class="block">
+	<label>Email: </label><br/><input class="inpu" type="text" name="email" required="required" placeholder="example@example.com"/><br/>
+	</div>
 
-</ul>
-<span th:if='${not @userController.logged}'>
-<p>Please, <b><a href="/register" class="register">Register</a> </b>and enjoy the content</p>
-</span>
+	<div class="block">
+	<label>Message:</label> <br/><textarea name="message"/><br/><br/>
+	</div>
+	
+	<input type="submit" value="Send"/>
+	</form>
 
 
 </div>
@@ -126,6 +123,18 @@
 </div>
 </div>
 	
+<script data-cfasync="false" type="text/javascript"
+src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-server/master/form-submission-handler.js"></script>
+<script language="JavaScript">
+// Code for validating the form
+// Visit http://www.javascript-coder.com/html-form/javascript-form-validation.phtml
+// for details
+var frmvalidator  = new Validator("contactform");
+frmvalidator.addValidation("name","req","Please provide your name"); 
+frmvalidator.addValidation("email","req","Please provide your email"); 
+frmvalidator.addValidation("email","email","Please enter a valid email address"); 
+</script>
+
 
 </body>
 
