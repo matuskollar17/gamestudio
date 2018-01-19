@@ -11,6 +11,7 @@ import org.springframework.web.context.WebApplicationContext;
 import gamestudio.entity.Comment;
 import gamestudio.entity.Favorite;
 import gamestudio.entity.Rating;
+import gamestudio.entity.Score;
 import gamestudio.game.guessnumber.consoleui.ConsoleUI;
 import gamestudio.service.CommentService;
 import gamestudio.service.FavoriteService;
@@ -38,6 +39,10 @@ public class GuessNumberController {
 
 	private String test = "sdhkgdfklhjgdfjkljhdfkl";
 
+	private int countscore;
+	
+	private int level;
+	
 	public String getTest() {
 		return test;
 	}
@@ -68,11 +73,11 @@ public class GuessNumberController {
 	@RequestMapping("/guessnum")
 	public String guessNum(Model model) {
 		consoleUI = new ConsoleUI(10);
-
+		
 		fillMethod(model);
 		//consoleUI.setRannum((int) (Math.random() * 10) + 1);
 		message = "";
-
+		
 		return "/guessnum";
 
 	}
@@ -81,11 +86,11 @@ public class GuessNumberController {
 	@RequestMapping("/guess_easy")
 	public String guessNum_easy(Model model) {
 		consoleUI = new ConsoleUI(10);
-
+		level = 1;
 		fillMethod(model);
 		//consoleUI.setRannum((int) (Math.random() * 10) + 1);
 		message = "Guess the number from 1 to 10";
-
+		
 		return "/guessnum";
 
 	}
@@ -94,11 +99,11 @@ public class GuessNumberController {
 	@RequestMapping("/guess_med")
 	public String guessNum_med(Model model) {
 		consoleUI = new ConsoleUI(100);
-
+		level = 2;
 		fillMethod(model);
 		//consoleUI.setRannum((int) (Math.random() * 10) + 1);
 		message = "Guess the number from 1 to 100";
-
+		
 		return "/guessnum";
 
 	}
@@ -106,11 +111,11 @@ public class GuessNumberController {
 	@RequestMapping("/guess_hard")
 	public String guessNum_hard(Model model) {
 		consoleUI = new ConsoleUI(1000);
-
+		level = 3;
 		fillMethod(model);
 		//consoleUI.setRannum((int) (Math.random() * 10) + 1);
 		message = "Guess the number from 1 to 100";
-
+		
 		return "/guessnum";
 
 	}
@@ -131,8 +136,12 @@ public class GuessNumberController {
 		// public String guessNumber_post(@RequestParam(value = "guessnumber", required
 		// = false) int guessnumber, Model model) {
 		int hint = Integer.parseInt(guessnumber);
-
+		
 		consoleUI.process(hint);
+		if (consoleUI.getRannum()== hint) {
+			scoreSave();
+		}
+		
 		fillMethod(model);
 
 		/*
@@ -187,6 +196,49 @@ public class GuessNumberController {
 		fillMethod(model);
 		
 		return "/guessnum";
+	}
+	
+	
+	private void scoreSave() {
+		
+		Score score = new Score();
+
+		if (userController.isLogged()) {
+
+			score.setGame("Guess Number");
+			score.setUsername(userController.getLoggedPlayer().getLogin());
+			if (level == 1) {
+				countscore =  consoleUI.getGamescore() + 1000;
+			}
+			if (level == 2) {
+				countscore =  consoleUI.getGamescore() + 2000;
+			}
+			if (level == 3) {
+				countscore =  consoleUI.getGamescore() + 3000;
+			}
+			score.setValue(countscore);
+			scoreService.addScore(score);
+		} else {
+
+			score.setGame("Guess Number");
+			score.setUsername("Guest");
+
+			if (level == 1) {
+				countscore =  consoleUI.getGamescore() + 1000;
+			}
+			if (level == 2) {
+				countscore =  consoleUI.getGamescore() + 2000;
+			}
+			if (level == 3) {
+				countscore =  consoleUI.getGamescore() + 3000;
+			}
+			score.setValue(countscore);
+			scoreService.addScore(score);
+
+		
+
+		}
+
 	}
 	
 	

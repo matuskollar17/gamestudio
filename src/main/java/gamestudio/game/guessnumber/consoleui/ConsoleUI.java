@@ -12,6 +12,16 @@ public class ConsoleUI {
 
 	int rannum;
 
+	private int gamescore;
+	
+	public int getGamescore() {
+		return gamescore;
+	}
+
+	public void setGamescore(int gamescore) {
+		this.gamescore = gamescore;
+	}
+
 	public int getRannum() {
 		return rannum;
 	}
@@ -87,10 +97,12 @@ public class ConsoleUI {
 		}
 		if (guessnumber > rannum) {
 			message1 = "Your Tip is too High, try again";
+			gamescore++;
 
 		}
 		if (guessnumber < rannum) {
 			message1 = "Your Tip is too Low, try again";
+			gamescore++;
 		}
 
 	}
