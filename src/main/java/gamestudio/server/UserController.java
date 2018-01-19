@@ -72,7 +72,7 @@ public class UserController {
 	
 	@RequestMapping("/register")
 	public String register(Model model) {
-		return "index";
+		return "register";
 
 	}
 	
